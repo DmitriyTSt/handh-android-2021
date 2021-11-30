@@ -7,9 +7,11 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import ru.dmitriyt.lesson12.data.model.BridgeListState
 import ru.dmitriyt.lesson12.data.repository.BridgesRepository
+import javax.inject.Inject
 
-class BridgeListViewModel : ViewModel() {
-    private val bridgesRepository = BridgesRepository()
+class BridgeListViewModel @Inject constructor(
+    private val bridgesRepository: BridgesRepository,
+) : ViewModel() {
 
     /** Мосты */
     private val _bridgesLiveData = MutableLiveData<BridgeListState>()
