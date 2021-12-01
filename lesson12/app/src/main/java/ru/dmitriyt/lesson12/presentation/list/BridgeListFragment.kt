@@ -4,18 +4,19 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.createViewModelLazy
 import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
 import ru.dmitriyt.lesson12.R
 import ru.dmitriyt.lesson12.data.model.Bridge
 import ru.dmitriyt.lesson12.data.model.BridgeListState
 import ru.dmitriyt.lesson12.databinding.FragmentBridgeListBinding
+import ru.dmitriyt.lesson12.presentation.BaseFragment
 
-class BridgeListFragment : Fragment(R.layout.fragment_bridge_list) {
+class BridgeListFragment : BaseFragment(R.layout.fragment_bridge_list) {
 
     private val binding by viewBinding(FragmentBridgeListBinding::bind)
-    private val viewModel: BridgeListViewModel by viewModels()
+    private val viewModel: BridgeListViewModel by appViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -8,8 +8,9 @@ import kotlinx.coroutines.launch
 import ru.dmitriyt.lesson12.data.model.BridgeListState
 import ru.dmitriyt.lesson12.data.repository.BridgesRepository
 
-class BridgeListViewModel : ViewModel() {
-    private val bridgesRepository = BridgesRepository()
+class BridgeListViewModel(
+    private val bridgesRepository: BridgesRepository,
+) : ViewModel() {
 
     /** Мосты */
     private val _bridgesLiveData = MutableLiveData<BridgeListState>()
